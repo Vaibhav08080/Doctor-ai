@@ -1,7 +1,7 @@
 import React from 'react' 
 import HistoryList from './_components/HistoryList'
 import { Button } from '@/components/ui/button';
-
+import DoctorAgentList from './_components/DoctorAgentList';
 const DashboardPage = () => {
   return (
     <div className="w-full px-4 pt-4">
@@ -16,6 +16,9 @@ const DashboardPage = () => {
       {/* History list */}
       <div className="w-full mt-8">
         <HistoryList />
+      </div>
+      <div>
+        <DoctorAgentList />
       </div>
     </div>
   )

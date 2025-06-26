@@ -13,22 +13,32 @@ const menuItems = [
 
 function AppHeader() {
   return (
-    <header className="w-full bg-transparent py-2 px-4 md:py-4 md:px-8 flex items-center justify-start fixed top-0 left-0 z-50" style={{background: 'rgba(255,255,255,0.95)'}}>
-      <div className="hidden md:flex items-center mr-6">
-        <Link href={'/'}><Image src="/logo.png" alt="Logo" width={50} height={50} className="md:w-[70px] md:h-[70px] w-[40px] h-[40px]" /></Link>
+    <header className="w-full bg-transparent py-2 px-4 md:py-4 md:px-8 flex items-center justify-between fixed top-0 left-0 z-50" style={{background: 'rgba(255,255,255,0.95)'}}>
+      {/* Logo always visible */}
+      <div className="flex items-center">
+        <Link href={'/'}>
+          <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-[36px] h-[36px] md:w-[70px] md:h-[70px]" />
+        </Link>
       </div>
-      <nav className="flex space-x-8 lg:space-x-12">
+
+      {/* Nav links: hidden on mobile, shown on md+ */}
+      <nav className="hidden md:flex space-x-8 lg:space-x-12">
         {menuItems.map(option => (
           <Link key={option.id} href={option.path} className="text-base md:text-xl font-semibold text-gray-800 hover:text-blue-600">
             {option.name}
           </Link>
         ))}
       </nav>
-      <div className="ml-auto flex items-center">
-        <div className="md:hidden mr-2">
+
+      {/* Hamburger menu: only on mobile */}
+      <div className="flex items-center">
+        <div className="md:hidden ml-2">
           <MobileMenu />
         </div>
-        <UserButton/>
+        {/* UserButton: only on md+ */}
+        <div className="hidden md:block ml-2">
+          <UserButton/>
+        </div>
       </div>
     </header>
   )
