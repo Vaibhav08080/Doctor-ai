@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
-type DoctorAgentCardProps = {
+ export type DoctorAgentCardProps = {
     id: number;
     specialist: string;
     description: string;
@@ -11,7 +11,7 @@ type DoctorAgentCardProps = {
     agentPrompt: string;
 }
 
-type Props = {
+interface Props {
     doctor: DoctorAgentCardProps;
 }
 

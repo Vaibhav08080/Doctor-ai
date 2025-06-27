@@ -2,15 +2,14 @@ import React from 'react'
 import HistoryList from './_components/HistoryList'
 import { Button } from '@/components/ui/button';
 import DoctorAgentList from './_components/DoctorAgentList';
+import Addsessiondialog from './_components/Addsessiondialog';
 const DashboardPage = () => {
   return (
     <div className="w-full px-4 pt-4">
       {/* Header section */}
       <div className="w-full flex justify-between mb-8">
         <h2 className="text-2xl md:text-3xl font-bold">My Dashboard</h2>
-        <Button>
-          + Consult With Doctor
-        </Button>
+        <Addsessiondialog/>
       </div>
 
       {/* History list */}

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Addsessiondialog from "./Addsessiondialog";
 function HistoryList() {
   const [historyList, setHistoryList] = useState([]);
   return (
@@ -17,7 +18,7 @@ function HistoryList() {
           />
           <h2 className="font-semibold text-lg md:text-xl mb-1 text-center">No Recent Consultations</h2>
           <p className="text-gray-500 text-sm md:text-base text-center max-w-md">It looks like you haven't consulted with any doctors yet.</p>
-          <Button>Start Consultation</Button>
+          <Addsessiondialog/>
         </div>
       ) : (
         <div></div>

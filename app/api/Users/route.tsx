@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm/sql/expressions/conditions";
 import { DevBundlerService } from "next/dist/server/lib/dev-bundler-service";
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/config/db";
-
+import { SessionChatTable } from "@/config/schema";
 // Helper to serialize BigInt values
 function serialize(obj: any) {
   return JSON.parse(
@@ -33,4 +33,12 @@ export  async function POST(req:NextRequest){
         console.error("Error in POST /api/users:", err);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
+}
+
+export async function GET(req:NextRequest){
+  const {searchParams}= new URL(req.url);
+  const sessionId = searchParams.get("sessionId");
+  const user = await currentUser();
+  const result =await db.select().from(SessionChatTable).where(eq(SessionChatTable.sessionId, sessionId));
+  return NextResponse.json(result[0])
 }
